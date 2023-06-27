@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import yup from "./yup.config";
 import Form from "./form";
 import Input from "./input";
+import mockApi from "./mockAPI";
 
 export interface IProps {}
 
@@ -30,11 +31,16 @@ const schema = yup
 const App: FC<IProps> = props => {
   const {} = props;
 
-  const methods = useForm<TField>({ resolver: yupResolver(schema) });
+  const methods = useForm<TField>({
+    resolver: yupResolver(schema),
+    defaultValues: async () => await mockApi()
+  });
 
   const onSubmit: SubmitHandler<TField> = data => {
     console.log(data);
   };
+
+  console.log(methods.formState.isLoading);
 
   // console.log(methods.formState.errors);
 

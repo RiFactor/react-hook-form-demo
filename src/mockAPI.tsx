@@ -5,8 +5,7 @@ const mockApi = () => {
         resolve({
           firstName: "Owen",
           lastName: "Evans",
-          age: 18,
-          gender: "male"
+          age: 18
         }),
       3000
     );
