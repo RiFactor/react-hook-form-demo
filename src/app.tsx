@@ -20,11 +20,13 @@ const schema = yup
 const App: FC<IProps> = props => {
   const {} = props;
 
-  const { register, handleSubmit } = useForm<TField>({ resolver: yupResolver(schema) });
+  const { register, handleSubmit, formState } = useForm<TField>({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<TField> = data => {
     console.log(data);
   };
+
+  console.log(formState.errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
