@@ -48,11 +48,11 @@ const App: FC<IProps> = props => {
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
-      <Input type="text" name="firstName"></Input>
-      <Input type="text" name="lastName"></Input>
-      <Input name="age" type="number" />
-      <Input name="shouldDisplay" type="checkbox" />
-      {shouldDisplay && <Input name="location" />}
+      <Input type="text" name="firstName" label="First Name"></Input>
+      <Input type="text" name="lastName" label="Last Name"></Input>
+      <Input name="age" type="number" label="Age" />
+      <Input name="shouldDisplay" type="checkbox" label="Add Location" />
+      {shouldDisplay && <Input name="location" label="Address" />}
 
       <button type="submit">Submit</button>
     </Form>
