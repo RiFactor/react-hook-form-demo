@@ -3,12 +3,17 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 export interface IProps {}
 
+type TField = {
+  firstName: string;
+  lastName: string;
+};
+
 const App: FC<IProps> = props => {
   const {} = props;
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<TField>();
 
-  const onSubmit: SubmitHandler<any> = data => {
+  const onSubmit: SubmitHandler<TField> = data => {
     console.log(data);
   };
 
