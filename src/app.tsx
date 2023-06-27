@@ -17,7 +17,7 @@ const schema = yup
     firstName: yup.string().required(),
     lastName: yup.string().required()
   })
-  .required();
+  .required(); // if undefined?
 
 const App: FC<IProps> = props => {
   const {} = props;
@@ -33,7 +33,9 @@ const App: FC<IProps> = props => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="text" {...register("firstName")}></input>
+      {formState.errors.firstName && <p>{formState.errors.firstName.message}</p>}
       <input type="text" {...register("lastName")}></input>
+      {formState.errors.lastName && <p>{formState.errors.lastName.message}</p>}
       <button type="submit">Submit</button>
     </form>
   );
