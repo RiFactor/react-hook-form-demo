@@ -36,6 +36,9 @@ const App: FC<IProps> = props => {
 
   // console.log(methods.formState.errors);
 
+  const firstName = methods.watch("firstName");
+  console.log(firstName);
+
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
       <Input type="text" name="firstName"></Input>
