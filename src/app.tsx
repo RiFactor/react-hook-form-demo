@@ -25,20 +25,20 @@ const schema = yup
 const App: FC<IProps> = props => {
   const {} = props;
 
-  const { register, handleSubmit, formState } = useForm<TField>({ resolver: yupResolver(schema) });
+  const methods = useForm<TField>({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<TField> = data => {
     console.log(data);
   };
 
-  console.log(formState.errors);
+  console.log(methods.formState.errors);
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input type="text" {...register("firstName")}></Input>
-      <ErrorMessage errors={formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
-      <Input type="text" {...register("lastName")}></Input>
-      <ErrorMessage errors={formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
+    <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
+      <Input type="text" {...methods.register("firstName")}></Input>
+      <ErrorMessage errors={methods.formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
+      <Input type="text" {...methods.register("lastName")}></Input>
+      <ErrorMessage errors={methods.formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
       <button type="submit">Submit</button>
     </Form>
   );
