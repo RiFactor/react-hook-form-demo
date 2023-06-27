@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import yup from "./yup.config";
 import { ErrorMessage } from "@hookform/error-message";
 
 export interface IProps {}
@@ -35,10 +35,8 @@ const App: FC<IProps> = props => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="text" {...register("firstName")}></input>
       <ErrorMessage errors={formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
-      {/* {formState.errors.firstName && <p>{formState.errors.firstName.message}</p>} */}
       <input type="text" {...register("lastName")}></input>
       <ErrorMessage errors={formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
-      {/* {formState.errors.lastName && <p>{formState.errors.lastName.message}</p>} */}
       <button type="submit">Submit</button>
     </form>
   );
