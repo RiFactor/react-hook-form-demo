@@ -17,12 +17,12 @@ const Input: FC<IProps> = props => {
 
   useEffect(() => {
     return () => methods.unregister(name);
-  }, [methods, name]);
+  }, [name]); // don't have methods in the dependency array
 
   return (
     <div>
       <input {...methods.register(name)} {...rest} />
-      <ErrorMessage errors={methods.formState.errors} name={name} render={({ message }) => <p>{message}</p>} />{" "}
+      <ErrorMessage errors={methods.formState.errors} name={name} render={({ message }) => <p>{message}</p>} />
     </div>
   );
 };
