@@ -10,6 +10,8 @@ type TField = {
   lastName: string;
 };
 
+// type TField = yup.InferType<typeof schema>; // can infer if no TS error
+
 const schema = yup
   .object({
     firstName: yup.string().required(),
