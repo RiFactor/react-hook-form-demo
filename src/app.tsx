@@ -31,7 +31,7 @@ const App: FC<IProps> = props => {
     console.log(data);
   };
 
-  console.log(methods.formState.errors);
+  // console.log(methods.formState.errors);
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>

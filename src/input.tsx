@@ -1,5 +1,5 @@
 import { ErrorMessage } from "@hookform/error-message";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { UseFormRegister, UseFormRegisterReturn, useFormContext } from "react-hook-form";
 
 export interface IProps
@@ -14,6 +14,10 @@ const Input: FC<IProps> = props => {
   const { name, ...rest } = props;
 
   const methods = useFormContext();
+
+  useEffect(() => {
+    methods.unregister(name);
+  }, [methods, name]);
 
   return (
     <div>
