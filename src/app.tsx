@@ -35,10 +35,8 @@ const App: FC<IProps> = props => {
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
-      <Input type="text" {...methods.register("firstName")}></Input>
-      <ErrorMessage errors={methods.formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
-      <Input type="text" {...methods.register("lastName")}></Input>
-      <ErrorMessage errors={methods.formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
+      <Input type="text" name="firstName"></Input>
+      <Input type="text" name="lastName"></Input>
       <button type="submit">Submit</button>
     </Form>
   );
