@@ -3,6 +3,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import yup from "./yup.config";
 import { ErrorMessage } from "@hookform/error-message";
+import Form from "./form";
+import Input from "./input";
 
 export interface IProps {}
 
@@ -32,13 +34,13 @@ const App: FC<IProps> = props => {
   console.log(formState.errors);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register("firstName")}></input>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <Input type="text" {...register("firstName")}></Input>
       <ErrorMessage errors={formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
-      <input type="text" {...register("lastName")}></input>
+      <Input type="text" {...register("lastName")}></Input>
       <ErrorMessage errors={formState.errors} name="firstName" render={({ message }) => <p>{message}</p>} />
       <button type="submit">Submit</button>
-    </form>
+    </Form>
   );
 };
 
