@@ -33,7 +33,7 @@ const App: FC<IProps> = props => {
 
   const methods = useForm<TField>({
     resolver: yupResolver(schema),
-    defaultValues: async () => await mockApi()
+    defaultValues: async () => await mockApi() // ignore error, still works
   });
 
   const onSubmit: SubmitHandler<TField> = data => {
