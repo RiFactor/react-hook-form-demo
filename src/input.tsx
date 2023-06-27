@@ -16,7 +16,7 @@ const Input: FC<IProps> = props => {
   const methods = useFormContext();
 
   useEffect(() => {
-    methods.unregister(name);
+    return () => methods.unregister(name);
   }, [methods, name]);
 
   return (
